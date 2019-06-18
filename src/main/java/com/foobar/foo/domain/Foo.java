@@ -1,5 +1,8 @@
 package com.foobar.foo.domain;
 
+import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,30 +10,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import java.util.UUID;
 
+@Data
 @Entity
-@Table(name = "foo")
+@Table(name = "tbl_foo")
 public class Foo {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="foo_id_seq")
-  @SequenceGenerator(name="foo_id_seq", sequenceName="foo_id_seq", allocationSize=1)
-  @Column(name = "ID")
-  private Long id;
+  @GeneratedValue(generator = "UUID")
+  @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+  @Column(nullable = false)
+  private UUID id;
 
-  @Column(name = "FOO")
+  @Column
   private String foo;
-
-  Foo(String foo) {
-    this.foo = foo;
-  }
-
-  Foo() {
-    // Default constructor needed by JPA
-  }
-
-  public String getFoo() {
-    return foo;
-  }
 
 }

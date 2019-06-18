@@ -5,9 +5,13 @@ import org.springframework.stereotype.Repository;
 
 import com.foobar.foo.domain.Foo;
 
+import java.util.List;
+
 @Repository
 public interface FooRepository extends JpaRepository<Foo, Long> {
 
   Foo findById(Long id);
 
+  @Override
+  List<Foo> findAll();
 }
