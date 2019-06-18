@@ -6,11 +6,12 @@ import org.springframework.stereotype.Repository;
 import com.foobar.bar.domain.Bar;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
-public interface BarRepository extends JpaRepository<Bar, Long> {
+public interface BarRepository extends JpaRepository<Bar, UUID> {
 
-  Bar findById(Long id);
+  Bar findById(UUID id);
 
   @Override
   List<Bar> findAll();

@@ -1,17 +1,17 @@
 package com.foobar.foo.repo;
 
+import com.foobar.foo.domain.Foo2;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.foobar.foo.domain.Foo;
 import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface FooRepository extends JpaRepository<Foo, UUID> {
+public interface Foo2Repository extends JpaRepository<Foo2, UUID> {
 
-  Foo findById(UUID id);
+  Foo2 findById(UUID id);
 
   @Override
-  List<Foo> findAll();
+  List<Foo2> findAll();
 }

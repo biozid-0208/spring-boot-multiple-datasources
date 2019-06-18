@@ -1,15 +1,14 @@
-package com.foobar.bar.domain;
+package com.foobar.foo.domain;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.UUID;
 
 @Data
 @Entity
-@Table(name = "tbl_bar")
-public class Bar {
+@Table(name = "tbl_foo2")
+public class Foo2 {
 
   @Id
   @GeneratedValue(generator = "UUID")
@@ -18,5 +17,6 @@ public class Bar {
   private UUID id;
 
   @Column
-  private String bar;
+  private String foo;
+
 }
